@@ -1,0 +1,112 @@
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #343a40;
+    --light-gray: #f1f1f1;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+
+.bg-dark-custom {
+    background-color: #212529 !important;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary-custom {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+.btn-secondary-custom:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.cta-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../recursos/campus.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 6rem 0;
+}
+
+.footer {
+    background-color: #212529;
+    color: white;
+    padding: 2rem 0;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+#starCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
