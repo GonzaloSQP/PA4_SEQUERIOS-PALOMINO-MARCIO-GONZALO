@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 
 const rutasPrincipales = require('./routes/rutas');
 const rutasDeAPI = require('./routes/api');
@@ -10,6 +11,14 @@ aplicacion.set('view engine', 'ejs');
 aplicacion.set('views', path.join(__dirname, 'views'));
 
 aplicacion.use(express.static(path.join(__dirname, 'public')));
+aplicacion.use(express.urlencoded({ extended: true }));
+
+aplicacion.use(session({
+  secret: 'contra123',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
+}));
 
 aplicacion.use('/api', rutasDeAPI);
 
