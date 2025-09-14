@@ -6,13 +6,13 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/dashboard">
+                        <a class="nav-link" href="/dashboard">
                             <i class="bi bi-house-door"></i>
-                            Panel de Control
+                            Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cursos">
+                        <a class="nav-link active" aria-current="page" href="/cursos">
                             <i class="bi bi-book"></i>
                             Cursos
                         </a>
@@ -35,30 +35,19 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Panel de Control</h1>
+                <h1 class="h2">Mis Cursos</h1>
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Próximas Clases</h5>
-                            <p class="card-text">No tienes clases programadas para hoy.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Calificaciones Recientes</h5>
-                            <p class="card-text">No se han publicado nuevas calificaciones.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="react-cursos-container"></div>
 
         </main>
     </div>
 </div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" src="/js/react/cursos.js"></script>
 
 <%- include('partials/footer') %>
