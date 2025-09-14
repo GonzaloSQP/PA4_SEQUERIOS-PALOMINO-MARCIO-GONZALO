@@ -12,6 +12,7 @@ aplicacion.set('views', path.join(__dirname, 'views'));
 
 aplicacion.use(express.static(path.join(__dirname, 'public')));
 aplicacion.use(express.urlencoded({ extended: true }));
+aplicacion.use(express.json()); // Add this line to parse JSON bodies
 
 aplicacion.use(session({
   secret: 'contra123',
