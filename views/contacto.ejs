@@ -1,47 +1,68 @@
 <%- include('partials/header') %>
 
 <main class="container py-5 mt-5">
-  <h1 class="section-title">Contáctanos</h1>
-  <p class="lead text-center mb-5">
-    Nos encantaría escucharte. Completa el siguiente formulario o visítanos.
-  </p>
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 class="section-title">Contáctanos</h1>
+      <p class="lead mb-4">
+        Nos encantaría escucharte. Completa el siguiente formulario o utiliza nuestros datos de contacto.
+      </p>
 
+      <form id="contactForm" class="needs-validation" novalidate>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" required>
+          <label for="nombre">Nombre completo</label>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
+          <label for="correo">Correo electrónico</label>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto" required>
+          <label for="asunto">Asunto</label>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required style="height: 150px;"></textarea>
+          <label for="mensaje">Escribe tu mensaje aquí...</label>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="d-grid">
+          <button type="submit" id="btnEnviar" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+        </div>
+        <div id="formFeedback" class="mt-3 text-center" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="col-lg-6">
+      <div class="ps-lg-5">
+        <h2 class="section-title">Información de Contacto</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="bi bi-geo-alt-fill me-2"></i>
+            <span>Av. de la Cultura 733, Cusco, Perú</span>
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-telephone-fill me-2"></i>
+            <span>+51 84 232398</span>
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-envelope-fill me-2"></i>
+            <span>info@sistemas.edu.pe</span>
+          </li>
+        </ul>
 
-  <form id="contactForm" class="row g-4 needs-validation" novalidate>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" required>
-      <div class="invalid-feedback"></div>
-    </div>
-    <div class="col-md-6">
-      <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
-      <div class="invalid-feedback"></div>
-    </div>
-    <div class="col-md-12">
-      <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto" required>
-      <div class="invalid-feedback"></div>
-    </div>
-    <div class="col-md-12">
-      <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-      <div class="invalid-feedback"></div>
-    </div>
-    <div class="col-12 text-center">
-      <button type="submit" id="btnEnviar" class="btn btn-primary-custom rounded-pill px-5">Enviar Mensaje</button>
-    </div>
-    <div id="formFeedback" class="col-12 mt-3 text-center" aria-live="polite"></div>
-  </form>
-
-  <div class="mt-5">
-    <h2 class="text-center mb-4 section-title">Nuestra Ubicación</h2>
-    <div class="ratio ratio-16x9 rounded shadow">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.659072003378!2d-71.98152342506655!3d-13.523023471867962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf4b987eeb33%3A0x8e24c61d5798985a!2sFacultad%20de%20Ciencias%20Sociales%2C%20UNSAAC!5e0!3m2!1ses-419!2spe!4v1720288563824!5m2!1ses-419!2spe"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-    <div class="text-center mt-3">
-      <a href="https://maps.app.goo.gl/dB7U87dXewsZB6wq5" target="_blank" class="btn btn-secondary-custom rounded-pill">
-        Ver en Google Maps <i class="bi bi-geo-alt ms-1"></i>
-      </a>
+        <div class="mt-4">
+          <h2 class="section-title">Nuestra Ubicación</h2>
+          <div class="ratio ratio-16x9 rounded shadow">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.659072003378!2d-71.98152342506655!3d-13.523023471867962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf4b987eeb33%3A0x8e24c61d5798985a!2sFacultad%20de%20Ciencias%20Sociales%2C%20UNSAAC!5e0!3m2!1ses-419!2spe!4v1720288563824!5m2!1ses-419!2spe"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

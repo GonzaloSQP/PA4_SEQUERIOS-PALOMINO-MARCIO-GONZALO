@@ -1,8 +1,8 @@
 <%- include('partials/header') %>
 
 <main>
-  <section class="hero-section position-relative" style="min-height: 50vh;">
-    <canvas id="starCanvas"></canvas>
+  <section class="hero-section position-relative hero-section-bg" style="min-height: 50vh;">
+    <div class="overlay"></div>
     <div class="hero-content container text-center text-white position-relative py-5">
       <h1 class="display-5 fw-bold">Nuestro Programa Académico</h1>
       <p class="lead">Estudia Ingeniería de Sistemas e Informática y prepárate para transformar el mundo con tecnología.</p>
@@ -10,66 +10,110 @@
   </section>
 
   <section class="container py-5">
-    <div class="row mb-4">
+    <div class="row mb-5">
       <div class="col-md-8 offset-md-2 text-center">
+        <h2 class="section-title">¿Por qué nuestro programa?</h2>
         <p class="fs-5">
           Nuestro plan de estudios está orientado a formar profesionales capaces de diseñar, construir y gestionar soluciones informáticas innovadoras, con una sólida base técnica, ética y humanista.
         </p>
       </div>
     </div>
 
-    <div class="accordion" id="programaAccordion">
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="misionHeading">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#misionCollapse" aria-expanded="true" aria-controls="misionCollapse">
-            Misión
-          </button>
-        </h2>
-        <div id="misionCollapse" class="accordion-collapse collapse show" data-bs-parent="#programaAccordion">
-          <div class="accordion-body">
-            Formar ingenieros con sólidos conocimientos en tecnología y sistemas, capaces de liderar procesos de transformación digital y resolver problemas reales de forma ética, creativa y eficiente.
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Misión</h5>
+            <p class="card-text">Formar ingenieros con sólidos conocimientos en tecnología y sistemas, capaces de liderar procesos de transformación digital y resolver problemas reales de forma ética, creativa y eficiente.</p>
           </div>
         </div>
       </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="visionHeading">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#visionCollapse" aria-expanded="false" aria-controls="visionCollapse">
-            Visión
-          </button>
-        </h2>
-        <div id="visionCollapse" class="accordion-collapse collapse" data-bs-parent="#programaAccordion">
-          <div class="accordion-body">
-            Ser reconocidos como una facultad líder en la formación de profesionales en ingeniería de sistemas e informática, comprometidos con el desarrollo tecnológico sostenible del país y el mundo.
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Visión</h5>
+            <p class="card-text">Ser reconocidos como una facultad líder en la formación de profesionales en ingeniería de sistemas e informática, comprometidos con el desarrollo tecnológico sostenible del país y el mundo.</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="objetivosHeading">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#objetivosCollapse" aria-expanded="false" aria-controls="objetivosCollapse">
-            Objetivos del Programa
-          </button>
-        </h2>
-        <div id="objetivosCollapse" class="accordion-collapse collapse" data-bs-parent="#programaAccordion">
-          <div class="accordion-body">
-            <ul class="list-unstyled ps-3">
-              <li>✔ Desarrollar habilidades técnicas en programación, redes, bases de datos, y seguridad informática.</li>
-              <li>✔ Fomentar el pensamiento lógico, la creatividad y la innovación tecnológica.</li>
-              <li>✔ Potenciar la capacidad de liderazgo, trabajo en equipo y comunicación efectiva.</li>
-              <li>✔ Promover valores éticos y responsabilidad profesional en el uso de la tecnología.</li>
-              <li>✔ Impulsar proyectos que impacten positivamente en la sociedad y la industria.</li>
-            </ul>
-          </div>
-        </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h2 class="section-title">Objetivos del Programa</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">✔ Desarrollar habilidades técnicas en programación, redes, bases de datos, y seguridad informática.</li>
+          <li class="list-group-item">✔ Fomentar el pensamiento lógico, la creatividad y la innovación tecnológica.</li>
+          <li class="list-group-item">✔ Potenciar la capacidad de liderazgo, trabajo en equipo y comunicación efectiva.</li>
+          <li class="list-group-item">✔ Promover valores éticos y responsabilidad profesional en el uso de la tecnología.</li>
+          <li class="list-group-item">✔ Impulsar proyectos que impacten positivamente en la sociedad y la industria.</li>
+        </ul>
       </div>
-
     </div>
   </section>
 
-  <section class="cta-section text-white">
-    <div class="container text-center">
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+      <h2 class="section-title">Plan de Estudios</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h5>Semestre 1-2</h5>
+            <p>Fundamentos de Programación, Matemáticas, Física.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h5>Semestre 3-4</h5>
+            <p>Estructuras de Datos, Bases de Datos, Sistemas Operativos.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h5>Semestre 5-6</h5>
+            <p>Redes, Ingeniería de Software, Arquitectura de Computadoras.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h5>Semestre 7-8</h5>
+            <p>Inteligencia Artificial, Seguridad Informática, Proyectos de TI.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h5>Semestre 9-10</h5>
+            <p>Prácticas Profesionales, Tesis, Cursos Electivos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <h2 class="section-title">Nuestros Docentes</h2>
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <img src="https://placehold.co/150x150" class="rounded-circle mb-3" alt="Docente 1">
+        <h5>Dr. Juan Pérez</h5>
+        <p class="text-muted">Inteligencia Artificial</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="https://placehold.co/150x150" class="rounded-circle mb-3" alt="Docente 2">
+        <h5>Dra. María García</h5>
+        <p class="text-muted">Bases de Datos</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="https://placehold.co/150x150" class="rounded-circle mb-3" alt="Docente 3">
+        <h5>Mg. Carlos Rodríguez</h5>
+        <p class="text-muted">Redes y Comunicaciones</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section text-white cta-section-bg">
+    <div class="overlay"></div>
+    <div class="container text-center position-relative">
       <h2 class="mb-4">¿Listo para convertirte en un ingeniero de sistemas líder?</h2>
       <p class="lead">Da el siguiente paso en tu carrera tecnológica con nosotros.</p>
       <a href="/contacto" class="btn btn-secondary-custom btn-lg rounded-pill mt-3">Solicita Más Información</a>

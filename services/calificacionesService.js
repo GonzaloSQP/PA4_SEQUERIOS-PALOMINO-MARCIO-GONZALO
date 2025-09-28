@@ -1,17 +1,1 @@
-const db = require('../database');
-
-class CalificacionesService {
-  static obtenerCalificacionesPorUsuario(usuarioId) {
-    return new Promise((resolve, reject) => {
-      db.all("SELECT c.nombre, ca.nota FROM calificaciones ca JOIN cursos c ON ca.curso_id = c.id WHERE ca.usuario_id = ?", [usuarioId], (err, rows) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(rows);
-        }
-      });
-    });
-  }
-}
-
-module.exports = CalificacionesService;
+const db=require("../database");class CalificacionesService{static obtenerCalificacionesPorUsuario(usuarioId){return new Promise((resolve,reject)=>{db.all("SELECT c.nombre, ca.nota FROM calificaciones ca JOIN cursos c ON ca.curso_id = c.id WHERE ca.usuario_id = ?",[usuarioId],(err,rows)=>{if(err){reject(err)}else{resolve(rows)}})})}}module.exports=CalificacionesService;
