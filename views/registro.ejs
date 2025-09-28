@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h2 class="card-title text-center mb-4">Registro de Usuario</h2>
+                    <% if (error === 'email_en_uso') { %>
+                        <div class="alert alert-danger" role="alert">
+                            El correo electrónico ya está registrado. Por favor, utiliza otro.
+                        </div>
+                    <% } %>
+                    <form action="/registro" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">ID de Estudiante</label>
+                            <input type="text" class="form-control" id="studentId" name="studentId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required autocomplete="new-password">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="/iniciar-sesion">Inicia sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

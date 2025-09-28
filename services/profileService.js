@@ -1,18 +1,70 @@
-let userProfile = {
-  id: 1,
-  name: 'John Doe',
-  email: 'user@example.com',
-  studentId: '123456789'
-};
+const db = require('../database');
 
 class ProfileService {
-  static getProfile() {
-    return userProfile;
+  static crearUsuario(userData) {
+    const { name, email, studentId, password } = userData;
+    return new Promise((resolve, reject) => {
+      db.run("INSERT INTO usuarios (name, email, studentId, password) VALUES (?, ?, ?, ?)", [name, email, studentId, password], function(err) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve({ id: this.lastID, ...userData });
+        }
+      });
+    });
   }
 
-  static updateProfile(updatedData) {
-    userProfile = { ...userProfile, ...updatedData };
-    return userProfile;
+  static encontrarUsuarioPorEmail(email) {
+    return new Promise((resolve, reject) => {
+      db.get("SELECT * FROM usuarios WHERE email = ?", [email], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
+
+  static obtenerPerfil(userId) {
+    return new Promise((resolve, reject) => {
+      db.get("SELECT * FROM usuarios WHERE id = ?", [userId], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
+
+  static actualizarPerfil(userId, updatedData) {
+    const { name, email, studentId } = updatedData;
+    return new Promise((resolve, reject) => {
+      db.run("UPDATE usuarios SET name = ?, email = ?, studentId = ? WHERE id = ?", [name, email, studentId, userId], function(err) {
+        if (err) {
+          reject(err);
+        } else if (this.changes === 0) {
+          resolve(null);
+        } else {
+          resolve({ id: userId, ...updatedData });
+        }
+      });
+    });
+  }
+
+  static eliminarUsuario(userId) {
+    return new Promise((resolve, reject) => {
+      db.run("DELETE FROM usuarios WHERE id = ?", [userId], function(err) {
+        if (err) {
+          reject(err);
+        } else if (this.changes === 0) {
+          resolve(null);
+        } else {
+          resolve(true);
+        }
+      });
+    });
   }
 }
 

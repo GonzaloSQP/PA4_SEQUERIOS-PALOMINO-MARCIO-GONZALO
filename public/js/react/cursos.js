@@ -5,11 +5,10 @@ function AplicacionDeCursos() {
     const [error, establecerError] = React.useState(null);
     const [cursoSeleccionado, establecerCursoSeleccionado] = React.useState(null);
 
-    // State for form inputs
     const [nuevoCursoNombre, establecerNuevoCursoNombre] = React.useState('');
     const [nuevoCursoCreditos, establecerNuevoCursoCreditos] = React.useState('');
     const [nuevoCursoDocente, establecerNuevoCursoDocente] = React.useState('');
-    const [editandoCurso, establecerEditandoCurso] = React.useState(null); // Holds the course being edited
+    const [editandoCurso, establecerEditandoCurso] = React.useState(null);
 
     const refrescarCursos = () => {
         establecerEstaCargando(true);
@@ -88,7 +87,7 @@ function AplicacionDeCursos() {
             establecerNuevoCursoCreditos('');
             establecerNuevoCursoDocente('');
             establecerEditandoCurso(null);
-            refrescarCursos(); // Refresh the list after adding/updating
+            refrescarCursos();
         })
         .catch(error => {
             establecerError(error.message);
@@ -100,7 +99,7 @@ function AplicacionDeCursos() {
         establecerNuevoCursoNombre(curso.nombre);
         establecerNuevoCursoCreditos(curso.creditos.toString());
         establecerNuevoCursoDocente(curso.docente);
-        establecerCursoSeleccionado(null); // Close details view if open
+        establecerCursoSeleccionado(null);
     };
 
     const manejarEliminarCurso = (id) => {
@@ -112,8 +111,8 @@ function AplicacionDeCursos() {
                 if (!respuesta.ok) {
                     throw new Error('Error al eliminar el curso');
                 }
-                refrescarCursos(); // Refresh the list after deleting
-                establecerCursoSeleccionado(null); // Close details view if open
+                refrescarCursos();
+                establecerCursoSeleccionado(null);
             })
             .catch(error => {
                 establecerError(error.message);

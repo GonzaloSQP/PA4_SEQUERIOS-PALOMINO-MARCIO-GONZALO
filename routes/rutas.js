@@ -1,13 +1,10 @@
 const express = require('express');
 const enrutadorPrincipal = express.Router();
-
-const USUARIO_VALIDO = {
-    correo: 'testusuario@ejemplo.com',
-    contrasena: 'contra123456'
-};
+const bcrypt = require('bcrypt');
+const ProfileService = require('../services/profileService');
 
 function verificarAutenticacion(solicitud, respuesta, siguiente) {
-    if (solicitud.session.loggedIn) {
+    if (solicitud.session.user) {
         siguiente();
     } else {
         respuesta.redirect('/iniciar-sesion?error=true');
@@ -31,31 +28,49 @@ enrutadorPrincipal.get('/iniciar-sesion', (solicitud, respuesta) => {
   respuesta.render('iniciar-sesion', { error: error });
 });
 
-enrutadorPrincipal.post('/iniciar-sesion', (solicitud, respuesta) => {
-    const { correo, contrasena } = solicitud.body;
+enrutadorPrincipal.post('/iniciar-sesion', async (solicitud, respuesta) => {
+    const { email, password } = solicitud.body;
+    const user = await ProfileService.encontrarUsuarioPorEmail(email);
 
-    if (correo === USUARIO_VALIDO.correo && contrasena === USUARIO_VALIDO.contrasena) {
-        solicitud.session.loggedIn = true;
+    if (user && await bcrypt.compare(password, user.password)) {
+        solicitud.session.user = user;
         respuesta.redirect('/dashboard');
     } else {
         respuesta.redirect('/iniciar-sesion?error=credenciales_invalidas');
     }
 });
 
+enrutadorPrincipal.get('/registro', (solicitud, respuesta) => {
+    const error = solicitud.query.error;
+    respuesta.render('registro', { error: error });
+});
+
+enrutadorPrincipal.post('/registro', async (solicitud, respuesta) => {
+    const { name, email, studentId, password } = solicitud.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    try {
+        await ProfileService.crearUsuario({ name, email, studentId, password: hashedPassword });
+        respuesta.redirect('/iniciar-sesion');
+    } catch (error) {
+        console.error('Error en el registro:', error);
+        respuesta.redirect('/registro?error=email_en_uso');
+    }
+});
+
 enrutadorPrincipal.get('/dashboard', verificarAutenticacion, (solicitud, respuesta) => {
-    respuesta.render('dashboard');
+    respuesta.render('dashboard', { user: solicitud.session.user });
 });
 
 enrutadorPrincipal.get('/cursos', verificarAutenticacion, (solicitud, respuesta) => {
-    respuesta.render('cursos');
+    respuesta.render('cursos', { user: solicitud.session.user });
 });
 
 enrutadorPrincipal.get('/calificaciones', verificarAutenticacion, (solicitud, respuesta) => {
-    respuesta.render('calificaciones');
+    respuesta.render('calificaciones', { user: solicitud.session.user });
 });
 
 enrutadorPrincipal.get('/perfil', verificarAutenticacion, (solicitud, respuesta) => {
-    respuesta.render('perfil');
+    respuesta.render('perfil', { user: solicitud.session.user });
 });
 
 enrutadorPrincipal.get('/logout', (solicitud, respuesta) => {
